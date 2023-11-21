@@ -8,6 +8,7 @@ type ParamsDto = {
 }
 
 export async function GET(
+    request: Request,
     { params }: { params: ParamsDto }
 ) {
     const postId = parseInt(params.categoryId, 10);
@@ -25,7 +26,8 @@ export async function GET(
 export async function DELETE(
     request: Request,
     { params }: { params: ParamsDto }) {
-    const categoryId = parseInt(params.categoryId, 10)
+    const body = await request.json()
+    const categoryId = body.id
     const deletedCategory = await prisma.category.delete({
         where: {
             id: categoryId
@@ -42,7 +44,7 @@ export async function PATCH(
     request: Request,
     { params }: { params: ParamsDto }) {
     const body = await request.json()
-    const categoryId = parseInt(params.categoryId, 10)
+    const categoryId = body.id
     const upddatedCategory = await prisma.category.update({
         where: {
             id: categoryId

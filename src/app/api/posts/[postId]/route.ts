@@ -9,6 +9,7 @@ type ParamsDto = {
 }
 
 export async function GET(
+    request: Request,
     { params }: { params: ParamsDto }
 ) {
     const postId = parseInt(params.postId, 10);

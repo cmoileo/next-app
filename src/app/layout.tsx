@@ -19,26 +19,26 @@ export default function RootLayout({
   return (
     <html lang="en">
         <body>
-        <Navbar>
-        <NavbarBrand>
-          <p className="font-bold text-inherit">Blog</p>
-        </NavbarBrand>
-        <NavbarContent className="hidden sm:flex gap-4" justify="center">
-          <NavbarItem>
-            <Link color="foreground" href="/create/">
-              Post article
-            </Link>
-          </NavbarItem>
-          <NavbarItem isActive>
-            <Link href="/posts" aria-current="page">
-              Blog
-            </Link>
-          </NavbarItem>
-        </NavbarContent>
-      </Navbar>
-        <Providers>
-          {children}
-        </Providers>
+          <Navbar>
+            <NavbarBrand>
+              <p className="font-bold text-inherit">Blog</p>
+            </NavbarBrand>
+            <NavbarContent className="hidden sm:flex gap-4" justify="center">
+              <NavbarItem>
+                <Link color="foreground" href="/create/">
+                  Post article
+                </Link>
+              </NavbarItem>
+              <NavbarItem isActive>
+                <Link href="/posts" aria-current="page">
+                  Blog
+                </Link>
+              </NavbarItem>
+            </NavbarContent>
+          </Navbar>
+          <Providers>
+            {children}
+          </Providers>
       </body>
     </html>
   )

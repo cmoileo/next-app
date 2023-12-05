@@ -3,6 +3,7 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 import {Providers} from "./providers";
+import {Navbar, NavbarBrand, NavbarContent, NavbarItem, Link, Button} from "@nextui-org/react";
 
 
 export const metadata: Metadata = {
@@ -18,6 +19,23 @@ export default function RootLayout({
   return (
     <html lang="en">
         <body>
+        <Navbar>
+        <NavbarBrand>
+          <p className="font-bold text-inherit">Blog</p>
+        </NavbarBrand>
+        <NavbarContent className="hidden sm:flex gap-4" justify="center">
+          <NavbarItem>
+            <Link color="foreground" href="/create/">
+              Post article
+            </Link>
+          </NavbarItem>
+          <NavbarItem isActive>
+            <Link href="/posts" aria-current="page">
+              Blog
+            </Link>
+          </NavbarItem>
+        </NavbarContent>
+      </Navbar>
         <Providers>
           {children}
         </Providers>

@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server"
 import { PrismaClient } from "@prisma/client"
+import { parse } from "path"
 
 const prisma = new PrismaClient()
 
@@ -17,7 +18,8 @@ export async function POST(request: Request) {
         data: {
             title: body.title,
             content: body.content,
-            categoryId: body.categoryId
+            categoryId: parseInt(body.categoryId, 10),
+            picture: body.picture,
         }
     })
     
